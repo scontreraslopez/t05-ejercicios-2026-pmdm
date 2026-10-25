@@ -23,4 +23,16 @@
     <string name="titulo_fase2">Selector Color</string>
     <string name="titulo_fase3">Valorar Pizza</string>
     <string name="seleccionar_ejercicio">Seleccionar ejercicio</string>
+    <string name="has_elegido">Has elegido %1$s</string>
+    <string name="mi_nombre">Sergio Contreras</string>
+    <string name="mensaje_snackbar">%1$s: %2$s</string>
+    <string name="mostrar_mensaje">Mostrar mensaje</string>
+    <string name="estrella_descripcion">%1$d de %2$d estrellas</string>
+    <string name="valoracion_pregunta">¿Qué te ha parecido la pizza?</string>
+    <string name="valoracion_sin_valorar">Sin valorar</string>
+    <string name="valoracion_actual">Valoración: %1$d / %2$d</string>
+    <string name="valoracion_comentario">Comentario (opcional)</string>
+    <string name="boton_enviar_valoracion">Enviar valoración</string>
+    <string name="valoracion_gracias">¡Gracias por tu valoración!</string>
+    <string name="boton_valorar_otra">Valorar otra vez</string>
 </resources>

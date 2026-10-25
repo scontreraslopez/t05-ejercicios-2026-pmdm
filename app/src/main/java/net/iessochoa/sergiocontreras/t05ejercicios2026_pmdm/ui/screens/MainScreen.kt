@@ -1,5 +1,6 @@
 package net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -14,6 +16,7 @@ import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.R
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.DynamicSelectTextField
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.T05Fase1
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.T05Fase2
+import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.T05Valoracion
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.theme.T05Ejercicios2026PMDMTheme
 
 /**
@@ -31,7 +34,8 @@ fun MainScreen(
     onScreenSelect: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // Aquí puedes agregar el contenido de la pantalla principal
+    val context = LocalContext.current
+
     Column(
         modifier = modifier
             .padding(horizontal = 16.dp)
@@ -40,7 +44,15 @@ fun MainScreen(
             options = screenOptions,
             selectedValue = selectedScreen,
             label = stringResource(R.string.seleccionar_ejercicio),
-            onValueChangedEvent = onScreenSelect,
+            onValueChangedEvent = { opcion ->
+                onScreenSelect(opcion)
+                // El Toast va en el callback, no en el cuerpo del composable
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.has_elegido, opcion),
+                    Toast.LENGTH_SHORT
+                ).show()
+            },
             modifier = Modifier.fillMaxWidth(),
         )
 
@@ -49,7 +61,7 @@ fun MainScreen(
         when (selectedScreen) {
             stringResource(R.string.titulo_fase1) -> T05Fase1(modifier = Modifier.fillMaxSize())
             stringResource(R.string.titulo_fase2) -> T05Fase2(modifier = Modifier.fillMaxSize())
-            //"Valorar Pizza" -> T05ValorarPizza(modifier = Modifier.fillMaxSize()) // Cambia esto a la pantalla correspondiente
+            stringResource(R.string.titulo_fase3) -> T05Valoracion(modifier = Modifier.fillMaxSize())
         }
 
     }
