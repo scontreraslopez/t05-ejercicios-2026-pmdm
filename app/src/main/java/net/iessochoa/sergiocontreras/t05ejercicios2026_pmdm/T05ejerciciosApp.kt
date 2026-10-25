@@ -19,10 +19,19 @@ import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.theme.T05Ejercici
 
 @Composable
 fun T05EjerciciosApp() {
+
+    val pantallas = listOf(
+        "Fase 1",
+        "Fase 2",
+        "Fase 3"
+    )
+
+    val pantallaSeleccionada = pantallas[0] // Aquí puedes cambiar la pantalla seleccionada según tus necesidades
+
     T05Ejercicios2026PMDMTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
-            topBar = { T05TopAppBar() }
+            topBar = { T05TopAppBar(pantallaSeleccionada) }
         ) { innerPadding ->
             MainScreen(modifier = Modifier
                 .fillMaxSize()

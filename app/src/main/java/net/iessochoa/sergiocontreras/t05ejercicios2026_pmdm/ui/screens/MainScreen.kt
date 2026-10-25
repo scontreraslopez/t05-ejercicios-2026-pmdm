@@ -22,8 +22,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
     ) {
+
+
         T05Fase1(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize(),
         )
 
     }

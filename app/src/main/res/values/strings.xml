@@ -5,4 +5,15 @@
     <string name="ingrediente_3">Pepperoni</string>
     <string name="imagen_pizza_description">Imagen de %1$s</string>
     <string name="total_pizza">Total: %1$d €</string>
+    <string name="boton_vaciar_pizza">Vaciar</string>
+    <string name="boton_pedido_pizza">Hacer pedido</string>
+    <string name="pedido_enviado">Pedido enviado</string>
+    <string name="cancelar_button">Cancelar</string>
+    <string name="pizza_vaciar_pedido_titulo">¿Vaciar el pedido?</string>
+    <string name="pizza_vaciar_pedido_cuerpo">Se quitarán todos los ingredientes.</string>
+    <string-array name="opciones">
+        <item>Pizza</item>
+        <item>Color</item>
+        <item>Valorar Pizza</item>
+    </string-array>
 </resources>
