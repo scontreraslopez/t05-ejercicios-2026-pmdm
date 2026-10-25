@@ -1,5 +1,6 @@
 package net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,44 +45,62 @@ fun T05Fase1(
         var mostrarDialogo by remember { mutableStateOf(false) }
 
 
-        var precio by remember { mutableIntStateOf(PRECIO_BASE) }
-
         val selectedPizzaOptions = remember {
             mutableStateListOf<Ingredientes>()
         }
 
+        // El precio se deriva de la selección: se recalcula en cada recomposición y no puede descuadrarse
+        val precio = PRECIO_BASE + selectedPizzaOptions.sumOf { it.precio }
+
         val onPizzaIngredientSelect = { ingrediente: Ingredientes, isSelected: Boolean ->
             if (isSelected) {
                 selectedPizzaOptions.add(ingrediente)
-                precio += ingrediente.precio
             } else {
                 selectedPizzaOptions.remove(ingrediente)
-                precio -= ingrediente.precio
             }
         }
 
         val onVaciarClick = {
             selectedPizzaOptions.clear()
-            precio = PRECIO_BASE
         }
 
-        val onPedidoClick = {
-            // Aquí puedes manejar el pedido, por ejemplo, mostrar un mensaje o navegar a otra pantalla
+        val context = LocalContext.current // Se lee fuera del lambda
+        val mensajePedidoEnviado = stringResource(R.string.pedido_enviado)
+
+        // Al confirmar el pedido: avisamos con un Toast y vaciamos la selección
+        val onConfirmarPedido = {
+            Toast.makeText(context, mensajePedidoEnviado, Toast.LENGTH_SHORT).show()
+            onVaciarClick()
+            mostrarDialogo = false
         }
 
+        // Diálogo con el resumen del pedido: ingredientes elegidos y total
         if (mostrarDialogo) {
+            val ingredientesTexto = if (selectedPizzaOptions.isEmpty()) {
+                stringResource(R.string.pedido_sin_ingredientes)
+            } else {
+                selectedPizzaOptions.map { stringResource(it.nombreRes) }.joinToString(", ")
+            }
+
             AlertDialog(
                 onDismissRequest = { mostrarDialogo = false },
-                title = { Text(stringResource(R.string.pizza_vaciar_pedido_titulo)) },
-                text = { Text(stringResource(R.string.pizza_vaciar_pedido_cuerpo)) },
+                title = { Text(stringResource(R.string.pedido_resumen_titulo)) },
+                text = {
+                    Column {
+                        Text(stringResource(R.string.pedido_resumen_ingredientes, ingredientesTexto))
+                        Text(stringResource(R.string.total_pizza, precio))
+                    }
+                },
                 confirmButton = {
-                    TextButton(onClick = {
-                        onVaciarClick()
-                        mostrarDialogo = false
-                    }) { Text("Vaciar") }
+                    TextButton(onClick = onConfirmarPedido) {
+                        Text(stringResource(R.string.confirmar_button))
+                    }
                 },
                 dismissButton = {
-                    TextButton(onClick = { mostrarDialogo = false }) { Text(stringResource(R.string.cancelar_button)) }
+                    // Cancelar solo cierra el diálogo, sin tocar la selección
+                    TextButton(onClick = { mostrarDialogo = false }) {
+                        Text(stringResource(R.string.cancelar_button))
+                    }
                 }
             )
         }
@@ -103,7 +121,7 @@ fun T05Fase1(
 
 
         PrecioPizza(
-            precio = precio,     // Esto esta mal. Iterativo
+            precio = precio,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -112,7 +130,8 @@ fun T05Fase1(
         BotonesPizza(
             modifier = Modifier.fillMaxWidth(),
             isVaciarEnabled = selectedPizzaOptions.isNotEmpty(),
-            onVaciarClick = { mostrarDialogo = true },
+            onVaciarClick = onVaciarClick,
+            onPedidoClick = { mostrarDialogo = true },
         )
 
         Spacer(modifier = Modifier.height(32.dp))

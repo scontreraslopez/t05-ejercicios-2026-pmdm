@@ -5,6 +5,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.R
 import androidx.compose.ui.tooling.preview.Preview
 
 /**
@@ -18,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun T05TopAppBar(
-    title: String = "Pedido Pizza"
+    title: String = stringResource(R.string.titulo_fase1)
 ) {
     CenterAlignedTopAppBar(
         title = { Text(

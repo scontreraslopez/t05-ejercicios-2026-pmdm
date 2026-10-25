@@ -1,15 +1,19 @@
 package net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.R
@@ -27,6 +31,7 @@ fun BotonesPizza(
     modifier: Modifier = Modifier,
     isVaciarEnabled: Boolean = true,
     onVaciarClick: () -> Unit = {},
+    onPedidoClick: () -> Unit = {},
 ) {
 
     Row(
@@ -41,12 +46,17 @@ fun BotonesPizza(
             Text(stringResource(R.string.boton_vaciar_pizza))
         }
 
-        val context = LocalContext.current // Se lee fuera del lambda
-        val mensaje = stringResource(R.string.pedido_enviado)
-
+        // Button con icono: Icon + separación estándar + texto
         Button(
-            onClick = { Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show() },
+            onClick = onPedidoClick,
+            contentPadding = ButtonDefaults.ButtonWithIconContentPadding
         ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_send),
+                contentDescription = null, // Decorativo: el texto ya describe la acción
+                modifier = Modifier.size(ButtonDefaults.IconSize)
+            )
+            Spacer(modifier = Modifier.width(ButtonDefaults.IconSpacing))
             Text(stringResource(R.string.boton_pedido_pizza))
         }
 

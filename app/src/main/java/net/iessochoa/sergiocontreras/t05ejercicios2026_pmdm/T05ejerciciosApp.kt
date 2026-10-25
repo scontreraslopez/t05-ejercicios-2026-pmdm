@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.T05TopAppBar
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.screens.MainScreen
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.theme.T05Ejercicios2026PMDMTheme
@@ -21,12 +22,12 @@ import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.theme.T05Ejercici
 fun T05EjerciciosApp() {
 
     val pantallas = listOf(
-        "Fase 1",
-        "Fase 2",
-        "Fase 3"
+        R.string.titulo_fase1,
+        R.string.titulo_fase2,
+        R.string.titulo_fase3
     )
 
-    val pantallaSeleccionada = pantallas[0] // Aquí puedes cambiar la pantalla seleccionada según tus necesidades
+    val pantallaSeleccionada = stringResource(pantallas[0]) // Aquí puedes cambiar la pantalla seleccionada según tus necesidades
 
     T05Ejercicios2026PMDMTheme {
         Scaffold(

@@ -9,8 +9,13 @@
     <string name="boton_pedido_pizza">Hacer pedido</string>
     <string name="pedido_enviado">Pedido enviado</string>
     <string name="cancelar_button">Cancelar</string>
-    <string name="pizza_vaciar_pedido_titulo">¿Vaciar el pedido?</string>
-    <string name="pizza_vaciar_pedido_cuerpo">Se quitarán todos los ingredientes.</string>
+    <string name="confirmar_button">Confirmar</string>
+    <string name="pedido_resumen_titulo">Resumen del pedido</string>
+    <string name="pedido_resumen_ingredientes">Ingredientes: %1$s</string>
+    <string name="pedido_sin_ingredientes">ninguno (pizza base)</string>
+    <string name="titulo_fase1">Pedido Pizza</string>
+    <string name="titulo_fase2">Fase 2</string>
+    <string name="titulo_fase3">Fase 3</string>
     <string-array name="opciones">
         <item>Pizza</item>
         <item>Color</item>
