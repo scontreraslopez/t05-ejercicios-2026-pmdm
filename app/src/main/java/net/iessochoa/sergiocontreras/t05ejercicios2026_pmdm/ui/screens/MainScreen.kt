@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.T05Fase1
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.theme.T05Ejercicios2026PMDMTheme
 
@@ -22,12 +23,13 @@ fun MainScreen(modifier: Modifier = Modifier) {
         modifier = modifier
     ) {
         T05Fase1(
-            modifier = modifier
+            modifier = Modifier.fillMaxSize()
         )
 
     }
 }
 
+@Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
     T05Ejercicios2026PMDMTheme {
