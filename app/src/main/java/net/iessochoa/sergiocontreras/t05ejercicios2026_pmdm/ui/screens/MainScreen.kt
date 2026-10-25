@@ -39,7 +39,7 @@ fun MainScreen(
         DynamicSelectTextField(
             options = screenOptions,
             selectedValue = selectedScreen,
-            label = "Seleccionar ejercicio",
+            label = stringResource(R.string.seleccionar_ejercicio),
             onValueChangedEvent = onScreenSelect,
             modifier = Modifier.fillMaxWidth(),
         )

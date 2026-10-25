@@ -22,9 +22,5 @@
     <string name="titulo_fase1">Pedido Pizza</string>
     <string name="titulo_fase2">Selector Color</string>
     <string name="titulo_fase3">Valorar Pizza</string>
-    <string-array name="opciones">
-        <item>Pizza</item>
-        <item>Color</item>
-        <item>Valorar Pizza</item>
-    </string-array>
+    <string name="seleccionar_ejercicio">Seleccionar ejercicio</string>
 </resources>
