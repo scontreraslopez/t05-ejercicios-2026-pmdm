@@ -3,4 +3,6 @@
     <string name="ingrediente_1">Queso</string>
     <string name="ingrediente_2">Champiñones</string>
     <string name="ingrediente_3">Pepperoni</string>
+    <string name="imagen_pizza_description">Imagen de %1$s</string>
+    <string name="total_pizza">Total: %1$d €</string>
 </resources>

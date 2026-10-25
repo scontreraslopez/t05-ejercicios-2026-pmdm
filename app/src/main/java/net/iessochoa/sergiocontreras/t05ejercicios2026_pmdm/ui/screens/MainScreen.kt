@@ -1,8 +1,10 @@
 package net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.components.T05Fase1
 import net.iessochoa.sergiocontreras.t05ejercicios2026_pmdm.ui.theme.T05Ejercicios2026PMDMTheme
 
 /**
@@ -19,6 +21,9 @@ fun MainScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
     ) {
+        T05Fase1(
+            modifier = modifier
+        )
 
     }
 }

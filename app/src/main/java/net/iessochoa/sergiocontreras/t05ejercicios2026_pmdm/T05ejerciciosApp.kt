@@ -24,7 +24,9 @@ fun T05EjerciciosApp() {
             modifier = Modifier.fillMaxSize(),
             topBar = { T05TopAppBar() }
         ) { innerPadding ->
-            MainScreen(modifier = Modifier.padding(innerPadding))
+            MainScreen(modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding))
         }
     }
 }
