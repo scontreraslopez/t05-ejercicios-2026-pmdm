@@ -34,9 +34,9 @@ import kotlin.random.Random
  * Creado en Settings -> Editor -> File and Code Templates
  */
 
-private const val INITIAL_R = 149f
-private const val INITIAL_G = 208f
-private const val INITIAL_B = 115f
+private const val INITIAL_R = 0f
+private const val INITIAL_G = 0f
+private const val INITIAL_B = 0f
 
 @Composable
 fun T05Fase2(
