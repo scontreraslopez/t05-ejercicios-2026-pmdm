@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">T05 Ejercicios 2026 - PMDM</string>
+    <string name="ingrediente_1">Queso</string>
+    <string name="ingrediente_2">Champiñones</string>
+    <string name="ingrediente_3">Pepperoni</string>
 </resources>
