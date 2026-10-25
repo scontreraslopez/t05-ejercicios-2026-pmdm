@@ -13,6 +13,12 @@
     <string name="pedido_resumen_titulo">Resumen del pedido</string>
     <string name="pedido_resumen_ingredientes">Ingredientes: %1$s</string>
     <string name="pedido_sin_ingredientes">ninguno (pizza base)</string>
+    <string name="canal_rojo">R</string>
+    <string name="canal_verde">G</string>
+    <string name="canal_azul">B</string>
+    <string name="color_actual">Color: (%1$d, %2$d, %3$d)</string>
+    <string name="boton_aleatorio">Aleatorio</string>
+    <string name="boton_reiniciar">Reiniciar</string>
     <string name="titulo_fase1">Pedido Pizza</string>
     <string name="titulo_fase2">Fase 2</string>
     <string name="titulo_fase3">Fase 3</string>
