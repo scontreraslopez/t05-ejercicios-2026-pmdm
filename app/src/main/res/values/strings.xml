@@ -20,8 +20,8 @@
     <string name="boton_aleatorio">Aleatorio</string>
     <string name="boton_reiniciar">Reiniciar</string>
     <string name="titulo_fase1">Pedido Pizza</string>
-    <string name="titulo_fase2">Fase 2</string>
-    <string name="titulo_fase3">Fase 3</string>
+    <string name="titulo_fase2">Selector Color</string>
+    <string name="titulo_fase3">Valorar Pizza</string>
     <string-array name="opciones">
         <item>Pizza</item>
         <item>Color</item>
